@@ -236,17 +236,7 @@ function App() {
 
 
 
-<div style={{
-  position: 'fixed',
-  top: 10,
-  left: 10,
-  background: 'red',
-  color: 'white',
-  padding: '8px',
-  zIndex: 999999
-}}>
-  TEST {new Date().toLocaleTimeString()}
-</div>
+
 
 
 
