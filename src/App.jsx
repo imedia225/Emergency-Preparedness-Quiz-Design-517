@@ -15,7 +15,7 @@ const questions = [
   },
   {
     id: 2,
-    title: "With tensions rising overseas, threats to our infrastructure, and the grid already struggling — who are you most worried about protecting if the power goes out?",
+    title: "With all tensions rising overseas, threats to our infrastructure, and the grid already struggling — who are you most worried about protecting if the power goes out?",
     options: [
       "Just myself — but I still want to be prepared",
       "My spouse/partner",
@@ -207,7 +207,7 @@ function App() {
                 
                 <div className="space-y-4 text-lg text-gray-300">
                   <p>
-                    But with tensions rising overseas, our infrastructure under threat, and the grid already struggling — hoping for the best could be the most dangerous mistake you make.
+                    But with all tensions rising overseas, our infrastructure under threat, and the grid already struggling — hoping for the best could be the most dangerous mistake you make.
                   </p>
                   <p className="font-bold text-white uppercase tracking-wide">
                     Take this quick quiz to see where you stand.
