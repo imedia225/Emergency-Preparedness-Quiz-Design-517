@@ -1,0 +1,97 @@
+.app-container {
+  min-height: 100vh;
+  background-color: #111827;
+}
+
+/* Custom olive color theme */
+:root {
+  --olive-50: #f7f8f2;
+  --olive-100: #eef0e5;
+  --olive-200: #dee2cc;
+  --olive-300: #c8cfa8;
+  --olive-400: #b0ba7f;
+  --olive-500: #9ca55e;
+  --olive-600: #7d8548;
+  --olive-700: #61663a;
+  --olive-800: #4f5331;
+  --olive-900: #43462c;
+}
+
+.bg-olive-500 {
+  background-color: var(--olive-500);
+}
+
+.hover\:bg-olive-600:hover {
+  background-color: var(--olive-600);
+}
+
+.text-olive-500 {
+  color: var(--olive-500);
+}
+
+.border-olive-500 {
+  border-color: var(--olive-500);
+}
+
+.hover\:border-olive-500:hover {
+  border-color: var(--olive-500);
+}
+
+.hover\:shadow-olive-500\/25:hover {
+  box-shadow: 0 25px 50px -12px rgba(156, 165, 94, 0.25);
+}
+
+.shadow-olive-500\/25 {
+  box-shadow: 0 25px 50px -12px rgba(156, 165, 94, 0.25);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--olive-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--olive-600);
+}
+
+/* Button hover glow effect */
+button:hover {
+  box-shadow: 0 0 20px rgba(156, 165, 94, 0.3);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 4px solid #374151;
+  border-top: 4px solid var(--olive-500);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ensure full viewport height */
+body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
