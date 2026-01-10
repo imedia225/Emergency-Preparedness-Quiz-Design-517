@@ -1,0 +1,35 @@
+name: Build site for Hostinger
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Publish build
+        run: |
+          rm -rf .publish
+          mkdir .publish
+          cp -r dist/* .publish/
+
+          cd .publish
+          git init
+          git checkout -b dist
+          git add .
+          git -c user.name="github-actions" -c user.email="github-actions@github.com" commit -m "Auto build"
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push --force origin dist
