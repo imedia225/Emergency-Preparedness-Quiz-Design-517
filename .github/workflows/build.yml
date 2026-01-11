@@ -1,35 +1,42 @@
-name: Build site for Hostinger
+name: Build and Deploy
 
 on:
   push:
-    branches: ["main"]
-
-permissions:
-  contents: write
+    branches:
+      - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - run: npm install
-      - run: npm run build
-
-      - name: Publish build
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build project
+        run: npx vite build
+      
+      - name: Copy built files to root
         run: |
-          rm -rf .publish
-          mkdir .publish
-          cp -r dist/* .publish/
-
-          cd .publish
-          git init
-          git checkout -b dist
-          git add .
-          git -c user.name="github-actions" -c user.email="github-actions@github.com" commit -m "Auto build"
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git push --force origin dist
+          # Remove source files (keep .git and workflow)
+          find . -maxdepth 1 ! -name '.' ! -name '..' ! -name '.git' ! -name '.github' ! -name 'dist' -exec rm -rf {} +
+          # Move dist contents to root
+          mv dist/* .
+          rm -rf dist
+      
+      - name: Commit and push built files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "Build: Deploy production files" || echo "No changes to commit"
+          git push
