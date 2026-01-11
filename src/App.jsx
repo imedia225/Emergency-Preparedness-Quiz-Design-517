@@ -205,14 +205,12 @@ function App() {
                   </p>
                 </div>
                 
-                <div className="space-y-4 text-lg text-gray-300">
-                  <p>
-                    But with all tensions rising overseas, our infrastructure under threat, and the grid already struggling — hoping for the best could be the most dangerous mistake you make.
-                  </p>
-                  <p className="font-bold text-white uppercase tracking-wide">
-                    Take this quick quiz to see where you stand.
-                  </p>
-                </div>
+
+
+
+
+
+
               </div>
             </motion.div>
           )}
