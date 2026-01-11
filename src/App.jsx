@@ -223,7 +223,7 @@ function App() {
           >
             <div className="mb-8">
               <p className="text-olive-500 text-xs font-bold mb-4 tracking-widest uppercase opacity-80">
-                Step {currentQuestion + 1} of {questions.length}
+                Question {currentQuestion + 1} of {questions.length}
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
                 {questions[currentQuestion].title}
